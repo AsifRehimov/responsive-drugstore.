@@ -7,8 +7,11 @@ const Cards = ({handleclick, search}) => {
                 <div style={{display:"block", width:"100%", height:"auto", float:"left"}}>
                 {
                     second.filter((val) =>{
-                     return val
-                    }).map((item) => {
+                        if (search === "") {
+                        return val
+                      } else if(val.title.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                      }else return console.log()}).map((item) => {
                       return(
                      <div key={item.id} className='col-sm-12 col-md-6 col-lg-4 col-xl-3 d-block ' style={{ paddingTop:'100px', float:"left"}}>
                      <Card.Img variant="top" src={item.img}/>
